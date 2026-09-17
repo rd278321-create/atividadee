@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kripton Shop - O Universo do seu Pet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Topbar Promocional Vibrante -->
+    <div class="topbar">
+        ⚡ Use o cupom <strong>KRIPTON10</strong> para 10% OFF | 🚚 Frete Grátis acima de R$ 150!
+    </div>
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="logo">
+            <h1>⚡ KRIPTON <span>SHOP</span></h1>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="O que seu super pet precisa hoje?" onkeyup="buscarProduto()">
+            <button><i class="fa-solid fa-bolt"></i></button>
+        </div>
+
+        <nav class="nav">
+            <a href="#produtos">Produtos</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#depoimentos">Avaliações</a>
+            <button class="cart-btn" onclick="toggleCarrinhoModal()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Banner Principal Vibrante -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge-hero">🔥 ULTRA NOVIDADES</span>
+            <h2>PODER SUPREMO PARA O SEU PET!</h2>
+            <p>Nutrição Premium, Acessórios Relâmpago e Serviços de Alta Performance.</p>
+            <div class="hero-btns">
+                <a href="#produtos" class="btn-primary">Explorar Produtos</a>
+                <a href="#servicos" class="btn-secondary-hero">Agendar Serviço</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Produtos -->
+    <section id="produtos" class="container">
+        <div class="section-header">
+            <div>
+                <h2>🔥 Nossos Produtos Mega Populares</h2>
+                <p class="section-desc">Filtre por categoria e encontre os melhores mimos</p>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filtrarCategoria('todos')">Todos</button>
+                <button class="filter-btn" onclick="filtrarCategoria('caes')">🐶 Cães</button>
+                <button class="filter-btn" onclick="filtrarCategoria('gatos')">🐱 Gatos</button>
+                <button class="filter-btn" onclick="filtrarCategoria('acessorios')">🎾 Acessórios</button>
+                <button class="filter-btn" onclick="filtrarCategoria('saude')">💊 Saúde & Higiene</button>
+            </div>
+        </div>
+
+        <div class="product-grid" id="product-grid">
+            <!-- Renderizado via JS -->
+        </div>
+    </section>
+
+    <!-- Seção de Serviços -->
+    <section id="servicos" class="services">
+        <h2>⚡ Serviços VIP Super Kripton</h2>
+        <p class="subtitle">Cuidados profissionais com a máxima energia e carinho</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon"><i class="fa-solid fa-bath"></i></div>
+                <h3>Banho & Tosa SPA</h3>
+                <p>Hidratação profunda, ozonioterapia e perfume hipoalergênico.</p>
+                <span class="price-tag">A partir de R$ 60,00</span>
+                <button class="btn-secondary" onclick="abrirModalAgendamento('Banho & Tosa SPA')">Agendar Agora</button>
+            </div>
+
+            <div class="service-card">
+                <div class="icon"><i class="fa-solid fa-user-doctor"></i></div>
+                <h3>Veterinário 24h</h3>
+                <p>Consultas de emergência, exames e vacinação preventiva.</p>
+                <span class="price-tag">A partir de R$ 120,00</span>
+                <button class="btn-secondary" onclick="abrirModalAgendamento('Consulta Veterinária')">Agendar Agora</button>
+            </div>
+
+            <div class="service-card">
+                <div class="icon"><i class="fa-solid fa-hotel"></i></div>
+                <h3>Hotel & Creche VIP</h3>
+                <p>Hospedagem com monitoramento via webcam 24h e recreação.</p>
+                <span class="price-tag">A partir de R$ 80,00/dia</span>
+                <button class="btn-secondary" onclick="abrirModalAgendamento('Hotel & Creche VIP')">Agendar Agora</button>
+            </div>
+
+            <div class="service-card">
+                <div class="icon"><i class="fa-solid fa-shield-dog"></i></div>
+                <h3>Adestramento Kripton</h3>
+                <p>Aulas individuais com especialistas em comportamento pet.</p>
+                <span class="price-tag">A partir de R$ 150,00</span>
+                <button class="btn-secondary" onclick="abrirModalAgendamento('Adestramento')">Agendar Agora</button>
+            </div>
+
+            <div class="service-card">
+                <div class="icon"><i class="fa-solid fa-scissors"></i></div>
+                <h3>Tosa Higiênica Express</h3>
+                <p>Corte de unhas, limpeza de ouvidos e higienização completa.</p>
+                <span class="price-tag">A partir de R$ 45,00</span>
+                <button class="btn-secondary" onclick="abrirModalAgendamento('Tosa Higiênica Express')">Agendar Agora</button>
+            </div>
+
+            <div class="service-card">
+                <div class="icon"><i class="fa-solid fa-teeth"></i></div>
+                <h3>Limpeza Dental Pet</h3>
+                <p>Procedimento indolor para prevenção de tártaro e mau hálito.</p>
+                <span class="price-tag">A partir de R$ 110,00</span>
+                <button class="btn-secondary" onclick="abrirModalAgendamento('Limpeza Dental Pet')">Agendar Agora</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="testimonials container">
+        <h2>🌟 O que dizem nossos Super Tutores</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"O serviço de banho é simplesmente o melhor! O Thor volta radiante e cheiroso!"</p>
+                <h4>— Mariana Silva & Thor 🦮</h4>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Entrega hiper rápida e brinquedos extremamente resistentes. Recomendo demais!"</p>
+                <h4>— Carlos Eduardo & Mingau 🐈</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal do Carrinho -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3><i class="fa-solid fa-cart-shopping"></i> Seu Carrinho</h3>
+                <span class="close-btn" onclick="toggleCarrinhoModal()">&times;</span>
+            </div>
+            
+            <div id="cart-items-container" class="cart-items-container"></div>
+
+            <div class="cart-summary">
+                <div class="coupon-box">
+                    <input type="text" id="coupon-code" placeholder="Cupom de desconto">
+                    <button onclick="aplicarCupom()">Aplicar</button>
+                </div>
+
+                <div class="shipping-box">
+                    <input type="text" id="cep-input" placeholder="CEP (ex: 01001000)" maxlength="8">
+                    <button onclick="calcularFrete()">Frete</button>
+                </div>
+                <small id="shipping-info"></small>
+
+                <div class="summary-line"><span>Subtotal:</span> <span id="cart-subtotal">R$ 0,00</span></div>
+                <div class="summary-line text-green"><span>Desconto:</span> <span id="cart-discount">- R$ 0,00</span></div>
+                <div class="summary-line"><span>Frete:</span> <span id="cart-shipping">R$ 0,00</span></div>
+                <div class="summary-line total-line"><span>Total:</span> <span id="cart-total">R$ 0,00</span></div>
+
+                <button class="btn-checkout" onclick="finalizarCompra()">Finalizar Pedido Super</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Agendamento -->
+    <div class="modal-overlay" id="agendamento-modal">
+        <div class="modal-card">
+            <div class="cart-header">
+                <h3 id="agendamento-titulo">Agendar Serviço</h3>
+                <span class="close-btn" onclick="fecharModalAgendamento()">&times;</span>
+            </div>
+            <form id="form-agendamento" onsubmit="confirmarAgendamento(event)">
+                <div class="form-group">
+                    <label>Seu Nome:</label>
+                    <input type="text" required placeholder="Digite seu nome completo">
+                </div>
+                <div class="form-group">
+                    <label>Nome do Pet:</label>
+                    <input type="text" required placeholder="Nome do seu pet">
+                </div>
+                <div class="form-group">
+                    <label>Data:</label>
+                    <input type="date" required id="data-agendamento">
+                </div>
+                <div class="form-group">
+                    <label>Horário:</label>
+                    <select required>
+                        <option value="">Selecione um horário</option>
+                        <option>09:00</option>
+                        <option>11:00</option>
+                        <option>14:00</option>
+                        <option>16:00</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-checkout">Confirmar Agendamento</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Ação realizada com sucesso!</div>
+
+    <!-- Rodapé Completo -->
+    <footer>
+        <div class="newsletter">
+            <div class="container newsletter-box">
+                <div>
+                    <h3>🚀 Faça parte do Kripton Club!</h3>
+                    <p>Receba ofertas secretas e cupons exclusivos no seu e-mail.</p>
+                </div>
+                <form class="newsletter-form" onsubmit="cadastrarNewsletter(event)">
+                    <input type="email" placeholder="Seu melhor e-mail" required>
+                    <button type="submit">Quero Ofertas!</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-content container">
+            <div>
+                <h3>⚡ KRIPTON SHOP</h3>
+                <p>O melhor e mais vibrante pet shop para o seu super companheiro.</p>
+            </div>
+            <div>
+                <h4>Navegação</h4>
+                <p><a href="#produtos">Produtos</a></p>
+                <p><a href="#servicos">Serviços VIP</a></p>
+                <p><a href="#depoimentos">Avaliações</a></p>
+            </div>
+            <div>
+                <h4>Contato</h4>
+                <p>📞 (11) 99999-8888</p>
+                <p>💬 WhatsApp: (11) 98888-7777</p>
+                <p>📍 Av. Kripton Neon, 1000 - SP</p>
+            </div>
+            <div>
+                <h4>Redes Sociais</h4>
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mensagem Solicitada -->
+        <div class="danilo-message">
+            💖 danilo lindinho 💖
+        </div>
+
+        <p class="copy">&copy; 2026 Kripton Shop. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
